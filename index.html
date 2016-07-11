@@ -7,14 +7,91 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <div class="content">
+        <nav class="navbar navbar-inverse sign">
+          <div class="navbar-header">
+            <a class="navbar-brand">ECommerce</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="sign signout default-show" data-toggle="modal" data-target="#log-in">
+              <a>Log In</a></li>
+              <div class="modal fade" id="log-in" tabindex="-1" role="dialog" aria-labelledby="logInLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="logInLabel">Log In</h4>
+                    </div>
+                    <div class="modal-body">
+                    <form id="sign-up" class="to-hide">
+                      <fieldset>
+                        <legend>Sign up!</legend>
+                        <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+                        <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+                        <input type="password" class="to-clear" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                        <input type="submit" name="submit" value="Sign up!">
+                      </fieldset>
+                    </form>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+                    <form id="sign-in" class="to-hide">
+                      <fieldset>
+                        <legend>Sign In!</legend>
+                        <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+                        <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+                        <input type="submit" name="submit" value="Sign In">
+                      </fieldset>
+                    </form>
+
+                    <form id="sign-out">
+                      <fieldset>
+                        <legend>Sign Out!</legend>
+                        <input class="sign-out" type="submit" value="Sign Out">
+                      </fieldset>
+                    </form>
+
+                    <form id="change-password" class="default-show">
+                      <fieldset>
+                        <legend>Change Password!</legend>
+                        <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
+                        <input type="password" class="to-clear" name="passwords[new]" placeholder="New Password">
+                        <input type="submit" name="submit" value="Change Password">
+                        <p style="display: none" class="updated">Password Updated!</p>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <li class="cart" data-toggle="modal" data-target="#cart">
+              <a>Cart</a></li>
+              <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="cartLabel">Shopping Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="show-profile">
+                        <h5> Here are the items in the cart. This is Thrilling.</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </nav>
+
+        <form action="/charge" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+            data-amount="2000"
+            data-name="Stripe.com"
+            data-description="2 widgets"
+            data-image="/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+        </form>
+      </div>
     </body>
 </html>
