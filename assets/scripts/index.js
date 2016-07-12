@@ -11,6 +11,7 @@ const productEvents = require('./product/product-events.js');
 const orderEvents = require('./order/order_events.js');
 const profileEvents = require('./profile/profile-events.js');
 const cartEvents = require('./cart/cart_events.js');
+const stripeEvents = require('./stripe/stripe-events.js');
 
 // On document ready
 $(() => {
@@ -19,4 +20,5 @@ $(() => {
   orderEvents.addHandlers();
   profileEvents.addProfileHandlers();
   cartEvents.addCartHandlers();
+  stripeEvents.addHandlers();
 });
