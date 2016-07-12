@@ -2,13 +2,21 @@
 
 const app = require('../app.js');
 
-const seeProduct = function () {
+const indexProducts = function () {
   return $.ajax({
-    url: app.host + '/profiles/' + app.products.id,
+    url: app.host + '/products/',
+    method: 'GET',
+  });
+};
+
+const showProduct = function (id) {
+  return $.ajax({
+    url: app.host + '/products/' + id,
     method: 'GET',
   });
 };
 
 module.exports = {
-  seeProduct,
+  indexProducts,
+  showProduct,
 };
