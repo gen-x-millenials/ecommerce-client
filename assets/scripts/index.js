@@ -6,11 +6,14 @@
 // use require without a reference to ensure a file is bundled
 require('./example');
 
-const authEvents = require('./auth/auth-events.js');
-const productEvents = require('./product/product-events.js');
+// const authEvents = require('./auth/auth-events.js');
+// const productEvents = require('./product/product-events.js');
+const profileEvents = require('./profile/profile-events.js');
 
 // On document ready
 $(() => {
-  authEvents.addHandlers();
-  productEvents.addProductHandlers();
+  // authEvents.addHandlers();
+  // productEvents.addProductHandlers();
+  profileEvents.addProfileHandlers();
+
 });

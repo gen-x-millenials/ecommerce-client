@@ -8,13 +8,18 @@
     </head>
     <body class="container-fluid">
       <div class="content">
+
         <nav class="navbar navbar-inverse sign">
+
           <div class="navbar-header">
             <a class="navbar-brand">ECommerce</a>
           </div>
+
           <ul class="nav navbar-nav">
+
             <li class="sign signout default-show" data-toggle="modal" data-target="#log-in">
-              <a>Log In</a></li>
+              <a>Log In</a>
+            </li>
               <div class="modal fade" id="log-in" tabindex="-1" role="dialog" aria-labelledby="logInLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -23,6 +28,7 @@
                       <h4 class="modal-title" id="logInLabel">Log In</h4>
                     </div>
                     <div class="modal-body">
+
                     <form class="to-hide sign-up">
                       <fieldset>
                         <legend>Sign up!</legend>
@@ -57,10 +63,13 @@
                         <input type="submit" name="submit" value="Change Password">
                         <p style="display: none" class="updated">Password Updated!</p>
                       </fieldset>
+                    </form>
+
                     </div>
                   </div>
                 </div>
               </div>
+
             <li class="cart" data-toggle="modal" data-target="#cart">
               <a>Cart</a></li>
               <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel">
@@ -70,6 +79,7 @@
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="cartLabel">Shopping Cart</h4>
                     </div>
+
                     <div class="modal-body">
                       <div class="show-cart">
                         <h5> Here are the items in the cart. This is Thrilling.</h5>
@@ -78,6 +88,7 @@
                   </div>
                 </div>
               </div>
+
               <li class="profile" data-toggle="modal" data-target="#profile">
                 <a>Profile</a></li>
                 <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel">
@@ -89,15 +100,15 @@
                       </div>
                       <div class="modal-body">
                         <div class="show-profile">
-                          <form id="profile-info">
+                          <form id='profile-form' class="profile-info">
                             <fieldset>
                               <legend>Enter Name and Address</legend>
-                              <input type="text" class="to-clear" name="profile[name]" placeholder="Full Name">
-                              <input type="text" class="to-clear" name="profile[street]" placeholder="Street Address">
-                              <input type="text" class="to-clear" name="profile[city]" placeholder="City">
-                              <input type="text" class="to-clear" name="profile[state]" placeholder="State">
-                              <input type="text" class="to-clear" name="profile[zip]" placeholder="Zip Code">
-                              <input type="submit" name="submit" value="Enter">
+                              <input type="text" class="to-clear" name="profile[name][given]" placeholder="First Name">
+                              <input type="text" class="to-clear" name="profile[name][surname]" placeholder="Last Name">
+                              <input type="text" class="to-clear" name="profile[addresses]" placeholder="Address">
+                              <input type="text" class="to-clear" name="profile[credit_cards]" placeholder="Credit Card">
+                              <!-- <input type="text" class="to-clear" name="profile[zip]" placeholder="Zip Code"> -->
+                              <input type="submit" value="Enter">
                             </fieldset>
                           </form>
                         </div>
@@ -118,6 +129,7 @@
             data-image="/img/documentation/checkout/marketplace.png"
             data-locale="auto">
           </script>
+        </form>
 
           <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
             <div class="modal-dialog" role="document">
@@ -131,8 +143,6 @@
                     <form id="item-add">
                       <fieldset>
                         <p>ITEMS</p>
-
-                        <!-- <input type="password" class="to-clear" name="credentials[password]" placeholder="Full Name"> -->
                         <input type="submit" name="submit" value="Add to cart">
                       </fieldset>
                     </form>
@@ -143,7 +153,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-4 img" data-toggle="modal" data-target="#item">
               <img src="http://cdn.scankart.com.s3.amazonaws.com/metadata/beer/assets/brooklyn-lager-12pack.png" alt="Brooklyn Lager" id="1" height="160" width="80">
               <h5>Brooklyn Lager - 6 Bottles</h5>
@@ -195,9 +205,9 @@
               <h5>DogFish Head 60 Min IPA</h5>
               <p>11.99</p>
             </div>
-          </div>
+          </div> -->
 
-        </form>
+
       </div>
     </body>
 </html>
