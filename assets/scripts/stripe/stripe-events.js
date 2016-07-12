@@ -1,12 +1,29 @@
 'use strict';
 
-const app = require('../app.js');
+const api = require('./stripe-api');
+const ui = require('./stripe-ui');
 
-const onPurchaseSubmit = function(event) {
+let shoppingCartArray = [];
+
+const onSendCardData = () => {
+
+};
+
+const onPurchaseSubmit = (event) => {
   event.preventDefault();
-  let data = getFormFields(event.target);
+  let data = shoppingCartArray;
 
-  
   api.createOrder(data)
-    .done(ui)
+    .then(onSendCardData)
+    .then(api.updateOrder)
+    .then(ui.createOrderSuccess)
+    .fail(ui.createOrderFail);
+};
+
+const addHandlers = () => {
+  $('.purchase').on('submit', onPurchaseSubmit);
+};
+
+module.exports = {
+  addHandlers,
 };
