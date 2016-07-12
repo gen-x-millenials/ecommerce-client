@@ -3,7 +3,8 @@
 const productApi = require('./product-api.js');
 
 const showSuccess = function (data) {
-  console.log(data);
+  let productTemplate = require ('../templates/product.handlebars');
+  $('.show-item').prepend(productTemplate(data));
 };
 
 const indexSuccess = function (data) {

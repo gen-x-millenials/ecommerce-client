@@ -7,6 +7,7 @@ const productUi = require('./product-ui.js');
 
 const onShowProduct = function (event) {
   event.preventDefault();
+  $('.show-item').html("");
   let item = $(this).children().attr('id');
   $('.item-id-temp').val(item-1);
   productApi.indexProducts()
