@@ -21,6 +21,7 @@ const signUpSuccess = function() {
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  console.log(app.user);
   console.log('Signed in as: ' + app.user.email);
   $('form').trigger('reset');
 };

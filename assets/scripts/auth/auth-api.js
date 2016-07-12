@@ -20,7 +20,7 @@ const signIn = (data) => {
 
 const signOut = () => {
   return $.ajax({
-    url: app.host + '/sign-out/' + app.user.id,
+    url: app.host + '/sign-out/' + app.user._id,
     method: "DELETE",
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -30,7 +30,7 @@ const signOut = () => {
 
 const changePassword = (data) => {
   return $.ajax({
-    url: app.host + '/change-password/' + app.user.id,
+    url: app.host + '/change-password/' + app.user._id,
     method: "PATCH",
     headers: {
       Authorization: 'Token token=' + app.user.token,
