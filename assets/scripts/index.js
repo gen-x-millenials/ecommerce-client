@@ -7,12 +7,12 @@
 require('./example');
 
 const authEvents = require('./auth/auth-events.js');
-// const productEvents = require('./product/product-events.js');
-const cartEvents = require('./order/order_events.js');
+const productEvents = require('./product/product-events.js');
+const orderEvents = require('./order/order_events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
-  // productEvents.addProductHandlers();
+  productEvents.addProductHandlers();
   orderEvents.addHandlers();
 });
