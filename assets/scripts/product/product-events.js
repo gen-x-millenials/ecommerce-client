@@ -1,19 +1,32 @@
 'use strict';
 
 //const getFormFields = require('../../../lib/get-form-fields');
+const productApi = require('./product-api.js');
+const productUi = require('./product-ui.js');
+//const app = require('../app.js');
 
-//const onShowItem = function (event) {
-//  event.preventDefault();
-//  let item = $(this).attr('id');
-//  $('#' + item);
-  //from here, retrieve ID info and then
-  //funnel it into handlebars to populate the modal
-//};
+const onShowProduct = function (event) {
+  event.preventDefault();
+  $('.show-item').html("");
+  let item = $(this).children().attr('id');
+  $('.item-id-temp').val(item-1);
+  productApi.indexProducts()
+  .done(productUi.indexSuccess);
+};
 
-//const addItemHandlers = () => {
-//  $('.img').on('click', onShowItem);
-//};
+//this method is a little odd: because ID's aren't the index values {ugh}
+//I am basically saying "GET all products, find the one at the index equal
+//to the ID of the product minus 1". So if you click the 1st image, you are
+//finding the product at index 1-1, so 0, and then finding the _id of that.
+//then, there's another get request to SHOW just that item and pass it into
+//handlebars. Will refactor if necessary but this works.
+
+
+const addProductHandlers = () => {
+  $('.img').on('click', onShowProduct);
+//  $('.add-to-cart').on('click', onAddToCart);
+};
 
 module.exports = {
-//  addItemHandlers,
+  addProductHandlers,
 };
