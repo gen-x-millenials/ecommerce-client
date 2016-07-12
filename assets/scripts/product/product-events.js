@@ -2,18 +2,19 @@
 
 //const getFormFields = require('../../../lib/get-form-fields');
 
-//const onShowItem = function (event) {
-//  event.preventDefault();
-//  let item = $(this).attr('id');
+const onShowProduct = function (event) {
+  event.preventDefault();
+  let item = $(this).children().attr('id');
+  console.log(item);
 //  $('#' + item);
   //from here, retrieve ID info and then
   //funnel it into handlebars to populate the modal
-//};
+};
 
-//const addItemHandlers = () => {
-//  $('.img').on('click', onShowItem);
-//};
+const addProductHandlers = () => {
+  $('.img').on('click', onShowProduct);
+};
 
 module.exports = {
-//  addItemHandlers,
+  addProductHandlers,
 };
