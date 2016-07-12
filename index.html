@@ -10,7 +10,7 @@
       <div class="content">
         <nav class="navbar navbar-inverse sign">
           <div class="navbar-header">
-            <a class="navbar-brand">ECommerce</a>
+            <a id='logo' class="navbar-brand">ECommerce</a>
           </div>
           <ul class="nav navbar-nav">
             <li class="sign signout default-show" data-toggle="modal" data-target="#log-in">
@@ -57,11 +57,12 @@
                         <input type="submit" name="submit" value="Change Password">
                         <p style="display: none" class="updated">Password Updated!</p>
                       </fieldset>
+                    </form>
                     </div>
                   </div>
                 </div>
               </div>
-            <li class="cart" data-toggle="modal" data-target="#cart">
+            <li id='cart-button' class="cart" data-toggle="modal" data-target="#cart">
               <a>Cart</a></li>
               <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel">
                 <div class="modal-dialog" role="document">
@@ -73,6 +74,7 @@
                     <div class="modal-body">
                       <div class="show-cart">
                         <h5> Here are the items in the cart. This is Thrilling.</h5>
+                        <button id='check-out-button'>Check Out</button>
                       </div>
                     </div>
                   </div>
@@ -118,6 +120,7 @@
             data-image="/img/documentation/checkout/marketplace.png"
             data-locale="auto">
           </script>
+        </form>
 
           <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
             <div class="modal-dialog" role="document">
@@ -142,7 +145,7 @@
               </div>
             </div>
           </div>
-
+          <div id='products'>
           <div class="row">
             <div class="col-md-4 img" data-toggle="modal" data-target="#item">
               <img src="http://cdn.scankart.com.s3.amazonaws.com/metadata/beer/assets/brooklyn-lager-12pack.png" alt="Brooklyn Lager" id="1" height="160" width="80">
@@ -197,7 +200,16 @@
             </div>
           </div>
 
-        </form>
       </div>
+
+      <div id='checkout-page'>
+        <h1>THIS IS THE CHECKOUT PAGE</h1>
+      </div>
+
+
+
+      </div>
+
+
     </body>
 </html>
