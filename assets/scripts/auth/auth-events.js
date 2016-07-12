@@ -2,8 +2,8 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 
-const api = require('./auth_api');
-const ui = require('./auth_ui');
+const api = require('./auth-api');
+const ui = require('./auth-ui');
 
 
 const onSignUp = (event) => {
