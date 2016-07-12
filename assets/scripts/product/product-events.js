@@ -24,6 +24,7 @@ const onShowProduct = function (event) {
 
 const addProductHandlers = () => {
   $('.img').on('click', onShowProduct);
+//  $('.add-to-cart').on('click', onAddToCart);
 };
 
 module.exports = {
