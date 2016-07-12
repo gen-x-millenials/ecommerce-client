@@ -12,3 +12,26 @@ body{
   // border: 1px solid black;
   padding-top: 20px;
 }
+
+.navbar{
+  height: 80px;
+  background-color: #85e085;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+.container{
+  margin: 10px auto;
+  max-width: 70%;
+}
+
+.float-right{
+  float: right;
+}
+
+.products{
+  margin-top: 40px;
+}
