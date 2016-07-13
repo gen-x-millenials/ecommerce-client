@@ -148,18 +148,8 @@
             </ul>
           </nav>
 
-        <button type="button" class="btn btn-default purchase">Purchase</button>
-        <form action="/charge" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-            data-amount="2000"
-            data-name="Stripe.com"
-            data-description="2 widgets"
-            data-image="/img/documentation/checkout/marketplace.png"
-            data-locale="auto">
-          </script>
-        </form>
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+          <button type="button" class="btn btn-default checkout" id="checkout-button">Checkout</button>
 
           <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
             <div class="modal-dialog" role="document">
