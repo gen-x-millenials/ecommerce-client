@@ -14,9 +14,9 @@ const failure = (error) => {
   console.error(error);
 };
 
-const signUpSuccess = function() {
+const signUpSuccess = (response) => {
+  console.log(response);
   console.log('Signed up');
-  $('form').trigger('reset');
 };
 
 const signInSuccess = (data) => {
