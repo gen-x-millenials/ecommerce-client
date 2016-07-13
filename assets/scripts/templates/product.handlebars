@@ -3,4 +3,12 @@
   <p class="price">Price: ${{product.price}} </p>
   <p class="name">Name: {{product.name}} </p>
   <p>Description: {{product.description}} <p>
+  <form id="form">
+    <fieldset>
+      <p>Quantity: <input type="number" value="1"></p>
+      <input type="text" value="{{product.name}}">
+      <input type="number" value="{{product.price}}">
+      <input type="text" value="{{product._id}}">
+    </fieldset>
+  </form>
 </div>
