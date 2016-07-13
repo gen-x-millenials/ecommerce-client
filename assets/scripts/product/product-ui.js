@@ -14,7 +14,13 @@ const indexSuccess = function (data) {
   .done(showSuccess);
 };
 
+const getProductsSuccess = function (data) {
+  console.log(data);
+  console.log("this is the get products success function");
+};
+
 module.exports = {
   indexSuccess,
   showSuccess,
+  getProductsSuccess,
 };

@@ -14,6 +14,14 @@ const onShowProduct = function (event) {
   .done(productUi.indexSuccess);
 };
 
+const onGetProducts = function () {
+  console.log("this is the document ready function");
+  productApi.indexProducts()
+  .done(productUi.getProductsSuccess);
+
+
+};
+
 //this method is a little odd: because ID's aren't the index values {ugh}
 //I am basically saying "GET all products, find the one at the index equal
 //to the ID of the product minus 1". So if you click the 1st image, you are
@@ -25,6 +33,7 @@ const onShowProduct = function (event) {
 const addProductHandlers = () => {
   $('.img').on('click', onShowProduct);
 //  $('.add-to-cart').on('click', onAddToCart);
+  $(document).ready(onGetProducts);
 };
 
 module.exports = {
