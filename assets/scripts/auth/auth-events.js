@@ -2,16 +2,18 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 
+const app = require('../app.js');
 const api = require('./auth-api');
 const ui = require('./auth-ui');
-
 
 const onSignUp = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signUp(data)
-    .done(ui.signUpSuccess)
-    .fail(ui.failure);
+    .then(ui.signUpSuccess)
+    .then(() => api.signIn(data))
+    .then(ui.signInSuccess)
+    .catch(ui.failure);
 };
 
 const onSignIn = (event) => {
@@ -24,6 +26,7 @@ const onSignIn = (event) => {
 
 const onSignOut = (event) => {
   event.preventDefault();
+  console.log(app.user);
   api.signOut()
     .done(ui.signOutSuccess)
     .fail(ui.failure);
