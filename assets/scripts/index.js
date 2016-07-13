@@ -9,10 +9,12 @@ require('./example');
 const authEvents = require('./auth/auth-events.js');
 const productEvents = require('./product/product-events.js');
 const orderEvents = require('./order/order_events.js');
+const profileEvents = require('./profile/profile-events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
   productEvents.addProductHandlers();
   orderEvents.addHandlers();
+  profileEvents.addProfileHandlers();
 });

@@ -23,6 +23,7 @@
                       <h4 class="modal-title" id="logInLabel">Log In</h4>
                     </div>
                     <div class="modal-body">
+
                     <form class="to-hide sign-up">
                       <fieldset>
                         <legend>Sign up!</legend>
@@ -59,6 +60,7 @@
                       </fieldset>
                     </form>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -80,8 +82,12 @@
                   </div>
                 </div>
               </div>
+
+
               <li class="profile" data-toggle="modal" data-target="#profile">
-                <a>Profile</a></li>
+                <a>Profile</a>
+              </li>
+
                 <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -94,11 +100,11 @@
                           <form id="profile-info">
                             <fieldset>
                               <legend>Enter Name and Address</legend>
-                              <input type="text" class="to-clear" name="profile[name]" placeholder="Full Name">
-                              <input type="text" class="to-clear" name="profile[street]" placeholder="Street Address">
-                              <input type="text" class="to-clear" name="profile[city]" placeholder="City">
-                              <input type="text" class="to-clear" name="profile[state]" placeholder="State">
-                              <input type="text" class="to-clear" name="profile[zip]" placeholder="Zip Code">
+                              <input type="text" class="to-clear" name="profile[name][given]" placeholder="First Name">
+                              <input type="text" class="to-clear" name="profile[name][surname]" placeholder="Last Name">
+                              <input type="text" class="to-clear" name="profile[addresses]" placeholder="Address">
+                              <input type="text" class="to-clear" name="profile[credit_cards]" placeholder="Credit Card Number">
+                              <!-- <input type="text" class="to-clear" name="profile[zip]" placeholder="Zip Code"> -->
                               <input type="submit" name="submit" value="Enter">
                             </fieldset>
                           </form>
