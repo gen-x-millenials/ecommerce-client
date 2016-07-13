@@ -7,11 +7,19 @@ const productUi = require('./product-ui.js');
 
 const onShowProduct = function (event) {
   event.preventDefault();
+  console.log("hi");
   $('.show-item').html("");
-  let item = $(this).children().attr('id');
-  $('.item-id-temp').val(item-1);
+  let id = $(this).children().attr('id');
+  productApi.showProduct(id)
+  .done(productUi.showSuccess);
+};
+
+const onGetProducts = function () {
+  console.log("this is the document ready function");
   productApi.indexProducts()
-  .done(productUi.indexSuccess);
+  .done(productUi.getProductsSuccess);
+
+
 };
 
 //this method is a little odd: because ID's aren't the index values {ugh}
@@ -23,8 +31,10 @@ const onShowProduct = function (event) {
 
 
 const addProductHandlers = () => {
-  $('.img').on('click', onShowProduct);
+  // $('.img').on('click', onShowProduct);
 //  $('.add-to-cart').on('click', onAddToCart);
+  $(document).ready(onGetProducts);
+  $(document).on('click','.img', onShowProduct);
 };
 
 module.exports = {
