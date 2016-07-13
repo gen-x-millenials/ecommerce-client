@@ -7,14 +7,219 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <div class="content">
+        <nav class="navbar navbar-inverse sign">
+          <div class="navbar-header">
+            <a id='logo' class="navbar-brand">ECommerce</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="sign signout default-show" data-toggle="modal" data-target="#log-in">
+              <a>Log In</a></li>
+              <div class="modal fade" id="log-in" tabindex="-1" role="dialog" aria-labelledby="logInLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="logInLabel">Log In</h4>
+                    </div>
+                    <div class="modal-body">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+                    <form class="to-hide sign-up">
+                      <fieldset>
+                        <legend>Sign up!</legend>
+                        <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+                        <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+                        <input type="password" class="to-clear" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                        <input type="submit" name="submit" value="Sign up!">
+                      </fieldset>
+                    </form>
+
+                    <form class="to-hide sign-in">
+                      <fieldset>
+                        <legend>Sign In!</legend>
+                        <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+                        <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+                        <input type="submit" name="submit" value="Sign In">
+                      </fieldset>
+                    </form>
+
+                    <form class="sign-out">
+                      <fieldset>
+                        <legend>Sign Out!</legend>
+                        <input class="sign-out" type="submit" value="Sign Out">
+                      </fieldset>
+                    </form>
+
+                    <form class="default-show change-password">
+                      <fieldset>
+                        <legend>Change Password!</legend>
+                        <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
+                        <input type="password" class="to-clear" name="passwords[new]" placeholder="New Password">
+                        <input type="submit" name="submit" value="Change Password">
+                        <p style="display: none" class="updated">Password Updated!</p>
+                      </fieldset>
+                    </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            <li id='cart-button' class="cart" data-toggle="modal" data-target="#cart">
+              <a>Cart</a></li>
+              <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cartLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="cartLabel">Shopping Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="show-cart">
+                        <h5> Here are the items in the cart. This is Thrilling.</h5>
+                        <button id='check-out-button'>Check Out</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <li class="profile" data-toggle="modal" data-target="#profile">
+                <a>Profile</a>
+              </li>
+
+                <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="profileLabel">User Profile</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="show-profile">
+                          <form id="profile-info">
+                            <fieldset>
+                              <legend>Enter Name and Address</legend>
+                              <input type="text" class="to-clear" name="profile[name][given]" placeholder="First Name">
+                              <input type="text" class="to-clear" name="profile[name][surname]" placeholder="Last Name">
+                              <input type="text" class="to-clear" name="profile[addresses]" placeholder="Address">
+                              <input type="text" class="to-clear" name="profile[credit_cards]" placeholder="Credit Card Number">
+                              <!-- <input type="text" class="to-clear" name="profile[zip]" placeholder="Zip Code"> -->
+                              <input type="submit" name="submit" value="Enter">
+                            </fieldset>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </ul>
+          </nav>
+
+        <form action="/charge" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+            data-amount="2000"
+            data-name="Stripe.com"
+            data-description="2 widgets"
+            data-image="/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+        </form>
+
+          <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <!-- <h4 class="modal-title" id="itemLabel">ITEM NAME</h4>-->
+                </div>
+                <div class="modal-body">
+                  <div class="show-item">
+                    <form id="item-add">
+                      <fieldset>
+                        <p>ITEMS</p>
+
+                        <!-- <input type="password" class="to-clear" name="credentials[password]" placeholder="Full Name"> -->
+                      </fieldset>
+                    </form>
+                  </div>
+                  <button class="add-to-cart">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div style="display: none" class="item-id-temp" val=""></div>
+
+
+          <div id='products'>
+          <div class="row">
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="http://cdn.scankart.com.s3.amazonaws.com/metadata/beer/assets/brooklyn-lager-12pack.png" alt="Brooklyn Lager" id="1" height="160" width="80">
+              <h5>Brooklyn Lager - 6 Bottles</h5>
+              <p>12.99</p>
+            </div>
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="https://www.gianteagle.com/ProductImages/PRODUCT_NODE_59/80660000060.jpg" alt="Pacifico" id="2" height="160" width="120">
+              <h5>Pacifico - 6 Bottles</h5>
+              <p>11.99</p>
+            </div>
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="http://static.vinepair.com/wp-content/uploads/2015/08/ipas-dogfish-head.jpg" alt="DogFishHead" id="3" height="160" width="120">
+              <h5>DogFish Head 60 Min IPA</h5>
+              <p>11.99</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="http://cdn.scankart.com.s3.amazonaws.com/metadata/beer/assets/brooklyn-lager-12pack.png" alt="Brooklyn Lager" id="4" height="160" width="80">
+              <h5>Brooklyn Lager - 6 Bottles</h5>
+              <p>12.99</p>
+            </div>
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="https://www.gianteagle.com/ProductImages/PRODUCT_NODE_59/80660000060.jpg" alt="Pacifico" id="5" height="160" width="120">
+              <h5>Pacifico - 6 Bottles</h5>
+              <p>11.99</p>
+            </div>
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="http://static.vinepair.com/wp-content/uploads/2015/08/ipas-dogfish-head.jpg" alt="DogFishHead" id="6" height="160" width="120">
+              <h5>DogFish Head 60 Min IPA</h5>
+              <p>11.99</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="http://cdn.scankart.com.s3.amazonaws.com/metadata/beer/assets/brooklyn-lager-12pack.png" alt="Brooklyn Lager" id="7" height="160" width="80">
+              <h5>Brooklyn Lager - 6 Bottles</h5>
+              <p>12.99</p>
+            </div>
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="https://www.gianteagle.com/ProductImages/PRODUCT_NODE_59/80660000060.jpg" alt="Pacifico" id="8" height="160" width="120">
+              <h5>Pacifico - 6 Bottles</h5>
+              <p>11.99</p>
+            </div>
+            <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+              <img src="http://static.vinepair.com/wp-content/uploads/2015/08/ipas-dogfish-head.jpg" alt="DogFishHead" id="9" height="160" width="120">
+              <h5>DogFish Head 60 Min IPA</h5>
+              <p>11.99</p>
+            </div>
+          </div>
+
+      </div>
+
+      <div id='checkout-page'>
+        <h1>THIS IS THE CHECKOUT PAGE</h1>
+      </div>
+
+
+
+      </div>
+
+
     </body>
 </html>
