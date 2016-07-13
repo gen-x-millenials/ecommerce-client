@@ -1,6 +1,6 @@
 'use strict';
 
-const getFormFields = require('../../../lib/get-form-fields');
+//const getFormFields = require('../../../lib/get-form-fields');
 const productApi = require('./product-api.js');
 const productUi = require('./product-ui.js');
 const cartStorage = require('../cart/cart_storage.js');
@@ -19,7 +19,6 @@ const onGetProducts = function () {
   productApi.indexProducts()
   .done(productUi.getProductsSuccess);
 };
-
 
 const onAddToCart = function (event) {
   event.preventDefault();

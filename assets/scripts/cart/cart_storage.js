@@ -1,5 +1,11 @@
 'use strict';
 
+let cartObj = { item: []};
+
+const populateCart = function (data) {
+  let cartTemplate = require ('../templates/cart.handlebars');
+  $('.cart-items').html(cartTemplate(data));
+};
 
 const addItems = function () {
   let cartItem = [];
@@ -7,7 +13,16 @@ const addItems = function () {
     let field = document.getElementById("form")[i];
     cartItem.push(field.value);
   }
-  console.log(cartItem);
+  let index = cartObj.item.length;
+  console.log(index);
+  cartObj.item[index] = {
+        quantity: cartItem[0],
+        name: cartItem[1],
+        price: cartItem[2],
+        id: cartItem[3]
+  };
+  console.log(cartObj);
+  return populateCart(cartObj);
 };
 
 module.exports = {

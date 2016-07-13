@@ -1,0 +1,25 @@
+
+  {{#each item}}
+    <div class="row">
+      <div class="col-md-3 cart">
+        <p>{{name}}</p>
+      </div>
+      <div class="col-md-3 cart">
+        <p>${{price}}</p>
+      </div>
+      <div class="col-md-3 cart">
+        <p>{{quantity}}</p>
+      </div>
+      <div class="col-md-3 cart">
+        <button size="small">x</button>
+      </div><br>
+    </div>
+    <form>
+      <fieldset>
+        <input type="text" name="order[items][product_id]" value="{{id}}">
+        <input type="number" name="order[items][price]" value={{price}}>
+        <input type="text" name="order[items][name]" value="{{name}}">
+        <input type="number" name="order[items][quantity]" value={{quantity}}>
+      </fieldset>
+    </form>
+  {{/each}}
