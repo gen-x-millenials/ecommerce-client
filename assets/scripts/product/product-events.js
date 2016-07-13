@@ -7,11 +7,11 @@ const productUi = require('./product-ui.js');
 
 const onShowProduct = function (event) {
   event.preventDefault();
+  console.log("hi");
   $('.show-item').html("");
-  let item = $(this).children().attr('id');
-  $('.item-id-temp').val(item-1);
-  productApi.indexProducts()
-  .done(productUi.indexSuccess);
+  let id = $(this).children().attr('id');
+  productApi.showProduct(id)
+  .done(productUi.showSuccess);
 };
 
 const onGetProducts = function () {
@@ -31,9 +31,10 @@ const onGetProducts = function () {
 
 
 const addProductHandlers = () => {
-  $('.img').on('click', onShowProduct);
+  // $('.img').on('click', onShowProduct);
 //  $('.add-to-cart').on('click', onAddToCart);
   $(document).ready(onGetProducts);
+  $(document).on('click','.img', onShowProduct);
 };
 
 module.exports = {
