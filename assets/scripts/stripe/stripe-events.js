@@ -1,5 +1,6 @@
 'use strict';
 
+const app = require('../app.js');
 const api = require('./stripe-api');
 const ui = require('./stripe-ui');
 
@@ -30,28 +31,30 @@ const cartTotal = () => {
 };
 
 let handler = StripeCheckout.configure({
-    key: 'pk_test_GkNup9bDIq38PpNXXeHBDjsL',
-    image: '/img/documentation/checkout/marketplace.png',
-    locale: 'auto',
-    token: function(token) {
-      let credentials = {
+  key: 'pk_test_GkNup9bDIq38PpNXXeHBDjsL',
+  image: '/img/documentation/checkout/marketplace.png',
+  locale: 'auto',
+  token: function(token) {
+    let credentials = {
       stripeToken: token.id,
       amount: cartTotal()
     };
+    api.addStripeChargeToOrder(credentials);
   }
 });
 
 const onCheckout = (event) => {
   event.preventDefault();
+  if (!app.user) {
+    return;
+  }
   let data = shoppingCartArray;
   api.createOrder(data)
     .then(() => handler.open({
         name: 'Gen X and the Millenials',
         description: 'purchase',
         amount: cartTotal()
-      }))
-    // .then(api.stripeCharge(authUi.stripeSuccess, authUi.failure, credentials));
-    // .then(api.updateOrder)
+    }))
     // .then(ui.createOrderSuccess)
     .catch(ui.failure);
 };
