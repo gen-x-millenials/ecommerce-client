@@ -1,0 +1,20 @@
+$cursive: 'Galada', cursive;;
+
+#admin-get-all, #admin-create-product {
+  font-size: 20px;
+}
+
+
+#welcome-page{
+  text-align: center;
+  & h1 {
+    font-size: 100px;
+    font-family: $cursive;
+  }
+  & h5 {
+    font-size: 28px;
+  }
+  & #enter-button {
+    font-size: 20px;
+  }
+}

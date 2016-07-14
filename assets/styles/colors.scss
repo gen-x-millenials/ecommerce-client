@@ -1,0 +1,40 @@
+$button-color: #E0E0E0;
+$plain-black: #000000;
+$plain-white: #FFFFFF;
+$blue-grey: #555566;
+$background-color: #FFFFFF;
+$pale-purple: #D8BFD8;
+$salmon: #FA8072;
+
+#welcome-page{
+  color:white;
+  & #enter-button, #admin-enter {
+    background-color: transparentize($plain-black, 0);
+    text-shadow: none !important;
+    border: 2px solid $plain-white !important;
+    box-shadow:none !important;
+    // background-color: $pale-purple;
+    color:$plain-white;
+  }
+}
+
+#admin-page {
+  border: 2px solid blue;
+}
+
+.admin-product {
+  border: 2px solid green;
+}
+
+.hidded{
+  display: none;
+}
+
+#admin-get-all, #admin-create-product {
+  background-color: transparentize($plain-black, 1);
+  text-shadow: none !important;
+  border:none !important;
+  box-shadow:none !important;
+  background-color: $pale-purple;
+  color:$plain-white;
+}

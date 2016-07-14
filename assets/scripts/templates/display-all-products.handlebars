@@ -1,7 +1,17 @@
 {{#each products}}
-    <div class="col-md-4 img" data-toggle="modal" data-target="#item">
-      <img src={{image}} id={{_id}} height="160" width="80">
+    <div class="col-md-4 img" data-toggle="modal" data-target="#item" height="260px">
+      <!-- <img src={{image}} id={{_id}} height="160" width="80"> -->
+      <img src={{image}} id={{_id}}  height="80%">
       <h5> {{name}}</h5>
       <p> ${{price}}</p>
     </div>
 {{/each}}
+
+
+<!-- {{#each products}}
+    <div class="col-md-4 img" data-toggle="modal" data-target="#item">
+      <img src={{image}} id={{_id}}  width="80">
+      <h5> {{name}}</h5>
+      <p> ${{price}}</p>
+    </div>
+{{/each}} -->
