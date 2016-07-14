@@ -3,18 +3,9 @@
 const app = require('../app.js');
 
 const getOrderSuccess = (data) => {
-  console.log(data);
+  // console.log(data);
   app.orders = data.orders;
-  // console.log(app.orders[0]);
-  // for(let i=0; i<app.orders.length; i++){
-  //   for(let j=0; j<app.orders[i].items.length;j++){
-  //
-  //     console.log(app.orders[i].items[j].name);
-      // $("#order-history").append(<p> app.orders[i].items[j].name </p>)
-    // }
 
-  // }
-  //////////////////////////////////////////////////////////
   if (app.orders.length !== 0)
   {
     //with delete column
@@ -47,7 +38,7 @@ const getOrderSuccess = (data) => {
   {
     $("#order-history").text("Current user does not have any orders..place an order!!");
   }
-  ///////////////////////////////////////////////////////
+
 };
 
 

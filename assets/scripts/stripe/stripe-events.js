@@ -22,8 +22,8 @@ let handler = StripeCheckout.configure({
   image: '/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   closed: function() {
-    console.log('done!!');
-    console.log(app.order);
+    // console.log('done!!');
+    // console.log(app.order);
     api.changePaidStatus().then(ui.changePaidStatusSuccess).catch(ui.failure);
   },
   token: function(token) {
@@ -56,7 +56,7 @@ const onCheckout = (event) => {
     .then(ui.createOrderSuccess)
     .catch(ui.failure);
 
-  console.log(app.order);
+  // console.log(app.order);
   // opens stripe checkout
   handler.open({
     name: 'Gen X and the Millenials',

@@ -8,12 +8,12 @@ const ui = require('./order_ui');
 
 const onCart = function(event) {
   event.preventDefault();
-  console.log('Cart Button clicked');
+  // console.log('Cart Button clicked');
 };
 
 const onCheckout = function(event) {
   event.preventDefault();
-  console.log('Checkout Button clicked')
+  // console.log('Checkout Button clicked')
   $('#products').hide();
   $('#checkout-page').show();
 };
@@ -26,7 +26,7 @@ const onBrowse = function(event) {
 
 const onGetOrderHistory = (event) => {
   event.preventDefault();
-  console.log("this is get order history");
+  // console.log("this is get order history");
   api.getOrderHistory()
   .done(ui.getOrderSuccess)
   // .fail(ui.failure);
@@ -35,7 +35,7 @@ const onGetOrderHistory = (event) => {
 const onDeleteOrder = (event)=> {
   event.preventDefault();
   let orderIDtoDelete = $(event.target).data("order-id");
-  console.log(orderIDtoDelete);
+  // console.log(orderIDtoDelete);
   api.deleteOrder(orderIDtoDelete)
   .done(ui.successDeleteOrder)
   .fail(ui.failure);
