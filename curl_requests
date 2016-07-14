@@ -1,0 +1,108 @@
+curl --include --request POST https://brewtiq-api.herokuapp.com/orders \
+--header "Content-Type: application/json" \
+--data '{
+"order": {
+ "_owner": "57868056775cb41200ac3587",
+ "items": [
+   {
+     "product_id": "578680a6775cb41200ac3589",
+     "name":"The Skinny Vine",
+     "price": 18,
+     "quantity": 1
+   },
+   {
+     "product_id": "100",
+     "name":"Pie",
+     "price": 18,
+     "quantity": 1
+   },
+   {
+     "product_id": "100000",
+     "name":"Milk",
+     "price": 18,
+     "quantity": 1
+   }
+   ],
+ "total": 54
+}
+}'
+
+
+
+curl --include --request POST https://brewtiq-api.herokuapp.com/orders \
+--header "Content-Type: application/json" \
+--data '{
+"order": {
+ "_owner": "57868056775cb41200ac3587",
+ "items": [
+   {
+     "product_id": "578680a6775cb41200ac3589",
+     "name":"watermelons",
+     "price": 300,
+     "quantity": 2
+   }],
+ "total": 600
+}
+}'
+
+curl --include --request POST https://brewtiq-api.herokuapp.com/orders \
+--header "Content-Type: application/json" \
+--data '{
+"order": {
+ "_owner": "57868056775cb41200ac3587",
+ "items": [
+   {
+     "product_id": "578680a6775cb41200ac3589",
+     "name":"The Skinny Vine",
+     "price": 18,
+     "quantity": 1
+   },
+   {
+     "product_id": "100",
+     "name":"Pie",
+     "price": 18,
+     "quantity": 1
+   }
+   ],
+ "total": 36
+}
+}'
+
+
+
+
+
+curl --include --request POST https://brewtiq-api.herokuapp.com/orders \
+--header "Content-Type: application/json" \
+--data '{
+"order": {
+ "_owner": "57868056775cb41200ac3587",
+ "items": [
+   {
+     "product_id": "578680a6775cb41200ac3589",
+     "name":"The Skinny Vine",
+     "price": 18,
+     "quantity": 1
+   },
+   {
+     "product_id": "100",
+     "name":"Pie",
+     "price": 18,
+     "quantity": 1
+   },
+   {
+     "product_id": "100000",
+     "name":"Milk",
+     "price": 18,
+     "quantity": 1
+   },
+   {
+     "product_id": "100000",
+     "name":"Milk",
+     "price": 18,
+     "quantity": 1
+   }
+   ],
+ "total": 72
+}
+}'
