@@ -22,13 +22,16 @@ const onRemoveFromCart = function (event) {
 const onChangeQuant = function (event) {
   event.preventDefault();
   let id = $(this).parent().parent().attr('id');
-  let newQuant = $(this).val();
   let index = cartStorage.cartObj.items
     .findIndex(val => val.name === id);
   let target = cartStorage.cartObj.items[index];
-  target.quantity = newQuant;
-  console.log(target);
+  target.quantity = $(this).val();
   cartStorage.updateTotal();
+  if ($(this).val() < 1) {
+    $(this).parent().parent().html("");
+    $('.no-items').show();
+    cartStorage.cartObj.items.splice(index, 1);
+  }
   $('.quant').off('mouseleave');
 };
 

@@ -5,7 +5,7 @@
   <p>Description: {{product.description}} <p>
   <form id="form">
     <fieldset>
-      <p>Quantity: <input type="number" value="1"></p>
+      <p>Quantity: <input type="number" min="1" placeholder="1"></p>
       <input type="text" style="display: none" value="{{product.name}}">
       <input type="number" style="display: none" value="{{product.price}}">
       <input type="text" style="display: none" value="{{product._id}}">

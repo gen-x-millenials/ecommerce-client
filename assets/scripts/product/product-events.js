@@ -22,11 +22,17 @@ const onGetProducts = function () {
 
 const onAddToCart = function (event) {
   event.preventDefault();
-  cartStorage.addItems();
-  $('.item-added').fadeIn(500).fadeOut(1000);
-  console.log(cartStorage.cartObj.items.length);
-  if (cartStorage.cartObj.items.length > 0) {
-    $('.no-items').hide();
+  let form = document.getElementById("form");
+  let targ = form[1];
+  let val = targ.value;
+  if (val > 0) {
+    cartStorage.addItems();
+    $('.item-added').fadeIn(500).fadeOut(1000);
+    if (cartStorage.cartObj.items.length > 0) {
+      $('.no-items').hide();
+    }
+  } else {
+    $('.invalid').fadeIn(500).fadeOut(1500);
   }
 };
 
