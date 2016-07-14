@@ -12,6 +12,8 @@ const orderEvents = require('./order/order_events.js');
 const profileEvents = require('./profile/profile-events.js');
 const cartEvents = require('./cart/cart_events.js');
 const stripeEvents = require('./stripe/stripe-events.js');
+const adminEvents = require('./admin/admin_events.js');
+
 
 // On document ready
 $(() => {
@@ -19,6 +21,12 @@ $(() => {
   productEvents.addProductHandlers();
   orderEvents.addHandlers();
   profileEvents.addProfileHandlers();
+<<<<<<< ee18a6a4569ee2fd9f3cc63f9c49d5fe2bdc29d5
   cartEvents.addCartHandlers();
   stripeEvents.addHandlers();
+=======
+
+  $('head').append("<link href='<link href='https://fonts.googleapis.com/css?family=Galada' rel='stylesheet' type='text/css'>");
+  adminEvents.addHandlers();
+>>>>>>> sk - Ui prettyify and admin files added
 });
