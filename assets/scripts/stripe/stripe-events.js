@@ -3,32 +3,19 @@
 const app = require('../app.js');
 const api = require('./stripe-api');
 const ui = require('./stripe-ui');
+const cart = require('../cart/cart_storage');
 
-let shoppingCartArray = {
-  "order": {
-    "items": [
-      {
-        "product_id": "578496f937f3cb1e4f3b59d4",
-        "price": 10,
-        "quantity": 1
-      },
-      {
-        "product_id": "5784961b37f3cb1e4f3b59d3",
-        "price": 20,
-        "quantity": 2
-      }
-    ],
-    "total": 50.00,
-  }
+let currentOrder = {
+  "order": cart.cartObj
 };
 
-const cartTotal = () => {
-  let sum = 0;
-  shoppingCartArray.order.items.forEach((item) => {
-    sum += item.price * item.quantity;
-  });
-  return sum * 100;
-};
+// const cartTotal = () => {
+//   let sum = 0;
+//   shoppingCartArray.order.items.forEach((item) => {
+//     sum += item.price * item.quantity;
+//   });
+//   return sum * 100;
+// };
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_GkNup9bDIq38PpNXXeHBDjsL',
@@ -42,7 +29,7 @@ let handler = StripeCheckout.configure({
   token: function(token) {
     let credentials = {
       stripeToken: token.id,
-      amount: cartTotal()
+      amount: currentOrder.order.total
     };
     api.addStripeCharge(credentials).then(ui.success).catch(ui.failure);
   }
@@ -53,7 +40,7 @@ const onSaveOrder = (event) => {
   if (!app.user) {
     return;
   }
-  let data = shoppingCartArray;
+  let data = currentOrder;
   api.createOrder(data)
     .then(ui.createOrderSuccess)
     .catch(ui.failure);
@@ -64,7 +51,7 @@ const onCheckout = (event) => {
   if (!app.user) {
     return;
   }
-  let data = shoppingCartArray;
+  let data = currentOrder;
   api.createOrder(data)
     .then(ui.createOrderSuccess)
     .catch(ui.failure);
@@ -74,12 +61,8 @@ const onCheckout = (event) => {
   handler.open({
     name: 'Gen X and the Millenials',
     description: 'purchase',
-    amount: cartTotal()
+    amount: currentOrder.order.total
   });
-
-  // api.changePaidStatus(data)
-  //   .then(ui.changePaidStatusSuccess)
-  //   .catch(ui.failure);
 };
 
 const addHandlers = () => {
