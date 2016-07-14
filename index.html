@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Brewtique</title>
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
@@ -9,9 +9,6 @@
     <body class="container-fluid">
       <div class="content">
         <nav class="navbar navbar-inverse sign">
-          <div class="navbar-header">
-            <a id='logo' class="navbar-brand">ECommerce</a>
-          </div>
           <ul class="nav navbar-nav">
             <li class="sign signout default-show" data-toggle="modal" data-target="#log-in">
               <a>Log In</a></li>
@@ -60,7 +57,6 @@
                       </fieldset>
                     </form>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -94,13 +90,14 @@
 
                         <h3>Your Cart is Empty!</h3>
                         <h5>Total: </h5>
-                        <button id='check-out-button'>Check Out</button>
+                        <script src="https://checkout.stripe.com/checkout.js"></script>
+                        <button type="button" class="btn btn-default create-order" id="save-order-button">Save for later</button>
+                        <button type="button" class="btn btn-default checkout" id="checkout-button">Checkout</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
 
               <li class="profile" data-toggle="modal" data-target="#profile">
                 <a>Profile</a>
@@ -148,17 +145,7 @@
             </ul>
           </nav>
 
-        <form action="/charge" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-            data-amount="2000"
-            data-name="Stripe.com"
-            data-description="2 widgets"
-            data-image="/img/documentation/checkout/marketplace.png"
-            data-locale="auto">
-          </script>
-        </form>
+
 
           <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
             <div class="modal-dialog" role="document">
@@ -183,6 +170,10 @@
             </div>
           </div>
 
+          <div class="jumbotron">
+            <h1>Brewtique</h1>
+            <p>We sell booze (and a dog)</p>
+          </div>
 
           <div id='products'>
           </div>
