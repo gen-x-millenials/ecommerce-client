@@ -24,11 +24,13 @@ const signInSuccess = (data) => {
   console.log('Signed in as: ' + app.user.email);
   console.log(app.user);
   $('form').trigger('reset');
+  //$('.add-to-cart').show();
 };
 
 const signOutSuccess = () => {
   app.user = null;
   console.log('Signed out');
+  //$('.add-to-cart').hide();
 };
 
 const changePasswordSuccess = function() {
