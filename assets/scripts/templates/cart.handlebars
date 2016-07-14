@@ -8,18 +8,10 @@
         <p>${{price}}</p>
       </div>
       <div class="col-md-3 cart">
-        <p>{{quantity}}</p>
+        <input class="quant" type="number" value={{quantity}}>
       </div>
       <div class="col-md-3 cart">
         <button class="x" size="small">x</button>
       </div><br>
     </div>
-    <form>
-      <fieldset>
-        <input type="text" name="order[items][product_id]" value="{{id}}">
-        <input type="number" name="order[items][price]" value={{price}}>
-        <input type="text" name="order[items][name]" value="{{name}}">
-        <input type="number" name="order[items][quantity]" value={{quantity}}>
-      </fieldset>
-    </form>
   {{/each}}
