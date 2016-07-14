@@ -1,15 +1,28 @@
 'use strict';
 
-let cartObj = { items: []};
+let cartObj = {
+  items: [],
+  total: 0
+};
+
 let inCartStatus = "";
 const arr = cartObj.items;
 
 const inCart = function (val) {
   if (this[1] === val.name) {
-    val.quantity += 1;
-    console.log("yes" + val.name + " " + val.quantity);
+    val.quantity += parseInt(this[0]);
     inCartStatus = "yes";
   }
+};
+const calculateTotal = function (val) {
+  this.push(val.price * val.quantity);
+};
+
+const updateTotal = function () {
+  let itemTotal = [];
+  arr.forEach(calculateTotal,itemTotal);
+  cartObj.total = itemTotal.reduce((pv, cv) => pv+cv, 0);
+  $('.show-cart').children('h5').text("Total: $" + cartObj.total);
 };
 
 const populateCart = function (data) {
@@ -26,20 +39,20 @@ const addItems = function () {
        cartItem.push(field.value);
      }
   arr.forEach(inCart,cartItem);
-  if (inCartStatus === "yes") {
-    console.log("yes");
-  } else {
-    console.log("UGH");
+  if (inCartStatus !== "yes") {
     arr[arr.length] = {
           quantity: parseInt(cartItem[0]),
           name: cartItem[1],
-          price: parseFloat(cartItem[2]),
+          price: parseInt(cartItem[2]),
           id: cartItem[3]
     };
   }
+  updateTotal();
   return populateCart(cartObj);
 };
 
 module.exports = {
   addItems,
+  cartObj,
+  updateTotal,
 };
