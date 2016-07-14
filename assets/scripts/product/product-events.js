@@ -15,7 +15,7 @@ const onShowProduct = function (event) {
 };
 
 const onGetProducts = function () {
-  console.log("this is the document ready function");
+  // console.log("this is the document ready function");
   productApi.indexProducts()
   .done(productUi.getProductsSuccess);
 };
