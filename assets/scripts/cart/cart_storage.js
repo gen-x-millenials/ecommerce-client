@@ -6,7 +6,7 @@ const arr = cartObj.items;
 
 const inCart = function (val) {
   if (this[1] === val.name) {
-    val.quantity += 1;
+    val.quantity += parseInt(this[0]);
     console.log("yes" + val.name + " " + val.quantity);
     inCartStatus = "yes";
   }
