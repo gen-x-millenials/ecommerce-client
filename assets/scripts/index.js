@@ -10,6 +10,10 @@ const authEvents = require('./auth/auth-events.js');
 const productEvents = require('./product/product-events.js');
 const orderEvents = require('./order/order_events.js');
 const profileEvents = require('./profile/profile-events.js');
+const cartEvents = require('./cart/cart_events.js');
+const stripeEvents = require('./stripe/stripe-events.js');
+const adminEvents = require('./admin/admin_events.js');
+
 
 // On document ready
 $(() => {
@@ -17,4 +21,9 @@ $(() => {
   productEvents.addProductHandlers();
   orderEvents.addHandlers();
   profileEvents.addProfileHandlers();
+  cartEvents.addCartHandlers();
+  stripeEvents.addHandlers();
+
+  $('head').append("<link href='<link href='https://fonts.googleapis.com/css?family=Galada' rel='stylesheet' type='text/css'>");
+  adminEvents.addHandlers();
 });
