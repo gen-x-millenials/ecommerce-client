@@ -14,10 +14,33 @@ const onRemoveFromCart = function (event) {
   }
   $(this).parent().parent().html("");
   cartStorage.updateTotal();
+  if (arr.length < 1) {
+    $('.no-items').show();
+  }
+};
+
+const onChangeQuant = function (event) {
+  event.preventDefault();
+  let id = $(this).parent().parent().attr('id');
+  let newQuant = $(this).val();
+  let index = cartStorage.cartObj.items
+    .findIndex(val => val.name === id);
+  let target = cartStorage.cartObj.items[index];
+  target.quantity = newQuant;
+  console.log(target);
+  cartStorage.updateTotal();
+  $('.quant').off('mouseleave');
+};
+
+const onSelectQuant = function (event) {
+  event.preventDefault();
+  $(this).on('mouseleave', onChangeQuant);
 };
 
 const addCartHandlers = () => {
   $(document).on('click','.x', onRemoveFromCart);
+  $(document).on('click', '.quant', onSelectQuant);
+//  $(document).on('mouseleave', '.quant', onChangeQuant);
 };
 
 module.exports = {

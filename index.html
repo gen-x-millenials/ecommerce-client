@@ -50,6 +50,7 @@
             </form>
           </div>
           <button class="add-to-cart">Add to Cart</button>
+          <p style="display: none" class="item-added">Item added to cart!</p>
         </div>
       </div>
     </div>
@@ -192,7 +193,7 @@
             <div class="cart-items">
             </div>
 
-            <h3>Your Cart is Empty!</h3>
+            <h3 class="no-items">Your Cart is Empty!</h3>
             <h5>Total: </h5>
             <script src="https://checkout.stripe.com/checkout.js"></script>
             <button type="button" class="btn btn-default create-order" id="save-order-button">Save for later</button>

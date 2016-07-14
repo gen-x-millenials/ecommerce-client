@@ -23,6 +23,11 @@ const onGetProducts = function () {
 const onAddToCart = function (event) {
   event.preventDefault();
   cartStorage.addItems();
+  $('.item-added').fadeIn(500).fadeOut(1000);
+  console.log(cartStorage.cartObj.items.length);
+  if (cartStorage.cartObj.items.length > 0) {
+    $('.no-items').hide();
+  }
 };
 
 //this method is a little odd: because ID's aren't the index values {ugh}
