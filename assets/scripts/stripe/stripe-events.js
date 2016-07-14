@@ -19,7 +19,7 @@ let currentOrder = {
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_GkNup9bDIq38PpNXXeHBDjsL',
-  image: '/img/documentation/checkout/marketplace.png',
+  image: 'http://www.rantlifestyle.com/wp-content/uploads/2014/08/017.jpg',
   locale: 'auto',
   closed: function() {
     // console.log('done!!');
@@ -37,7 +37,7 @@ let handler = StripeCheckout.configure({
 
 const onSaveOrder = (event) => {
   event.preventDefault();
-  if (!app.user) {
+  if (!app.user || currentOrder.order.total === 0) {
     return;
   }
   let data = currentOrder;
@@ -48,7 +48,7 @@ const onSaveOrder = (event) => {
 
 const onCheckout = (event) => {
   event.preventDefault();
-  if (!app.user) {
+  if (!app.user || currentOrder.order.total === 0) {
     return;
   }
   let data = currentOrder;
