@@ -23,6 +23,10 @@ User Stories :
  - as a user, I want simplicity in design so that I can quickly and easily make purchases on this site and get onto to drinking my alcohol.
  - as a user, I want password security to log into my site so that I can securely store my credit card in my profile for purchases.
 
+Link to our ERD:
+
+http://i.imgur.com/KBR7oyJ.png
+
 Link to our backend API :
 
 https://github.com/gen-x-millenials/ecommerce-express-api
