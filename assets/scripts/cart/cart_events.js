@@ -13,6 +13,7 @@ const onRemoveFromCart = function (event) {
     }
   }
   $(this).parent().parent().html("");
+  cartStorage.updateTotal();
 };
 
 const addCartHandlers = () => {
