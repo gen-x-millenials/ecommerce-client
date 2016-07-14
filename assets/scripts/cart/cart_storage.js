@@ -26,7 +26,6 @@ const addItems = function () {
      }
   arr.forEach(inCart,cartItem);
   if (inCartStatus !== "yes") {
-    console.log("UGH");
     arr[arr.length] = {
           quantity: parseInt(cartItem[0]),
           name: cartItem[1],
