@@ -23,7 +23,7 @@
   </li>
 
 
-  <li class="profile" data-toggle="modal" data-target="#profile">
+  <li class="profile" style="display: none" data-toggle="modal" data-target="#profile">
     <a>Profile</a>
   </li>
 
@@ -50,6 +50,8 @@
             </form>
           </div>
           <button class="add-to-cart">Add to Cart</button>
+          <p style="display: none" class="item-added">Item added to cart!</p>
+          <p style="display: none" class="invalid">You must select a quantity greater than zero!</p>
         </div>
       </div>
     </div>
@@ -81,7 +83,7 @@
         </div>
         <div class="modal-body">
 
-          <form class="to-hide sign-up">
+          <form class="after-out sign-up">
             <fieldset>
               <legend>Sign up!</legend>
               <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
@@ -91,7 +93,7 @@
             </fieldset>
           </form>
 
-          <form class="to-hide sign-in">
+          <form class="sign-in after-out">
             <fieldset>
               <legend>Sign In!</legend>
               <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
@@ -100,14 +102,14 @@
             </fieldset>
           </form>
 
-          <form class="sign-out">
+          <form class="sign-out after-in" style="display: none">
             <fieldset>
               <legend>Sign Out!</legend>
               <input class="sign-out" type="submit" value="Sign Out">
             </fieldset>
           </form>
 
-          <form class="default-show change-password">
+          <form class="change-password after-in" style="display: none">
             <fieldset>
               <legend>Change Password!</legend>
               <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
@@ -192,11 +194,12 @@
             <div class="cart-items">
             </div>
 
-            <h3>Your Cart is Empty!</h3>
+            <h3 class="no-items">Your Cart is Empty!</h3>
             <h5>Total: </h5>
             <script src="https://checkout.stripe.com/checkout.js"></script>
-            <button type="button" class="btn btn-default create-order" id="save-order-button">Save for later</button>
-            <button type="button" class="btn btn-default checkout" id="checkout-button">Checkout</button>
+            <button style="display: none" type="button" class="btn btn-default create-order" id="save-order-button">Save for later</button>
+            <button style="display: none" type="button" class="btn btn-default checkout" id="checkout-button">Checkout</button>
+            <h3 class="sign-in-warn">You must be signed in to complete this order</h3>
           </div>
         </div>
       </div>

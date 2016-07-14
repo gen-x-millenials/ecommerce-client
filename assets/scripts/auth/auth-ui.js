@@ -25,6 +25,12 @@ const signInSuccess = (data) => {
   // console.log('Signed in as: ' + app.user.email);
   // console.log(app.user);
   $('form').trigger('reset');
+  $('.profile').show();
+  $("#order-history").html("");
+  $('#checkout-button').show();
+  $('.sign-in-warn').hide();
+  $('.after-in').show();
+  $('.after-out').hide();
   //$('.add-to-cart').show();
 
 };
@@ -36,6 +42,11 @@ const signOutSuccess = () => {
   $('#content').hide();
   $('#welcome-page').show();
   $('#sign-in-modal').modal('hide');
+  $('.profile').hide();
+  $('#checkout-button').hide();
+  $('.sign-in-warn').show();
+  $('.after-in').hide();
+  $('.after-out').show();
 };
 
 const changePasswordSuccess = function() {
