@@ -1,6 +1,6 @@
 
   {{#each items}}
-    <div class="row">
+    <div class="row {{id}}">
       <div class="col-md-3 cart">
         <p>{{name}}</p>
       </div>
@@ -11,7 +11,7 @@
         <p>{{quantity}}</p>
       </div>
       <div class="col-md-3 cart">
-        <button size="small">x</button>
+        <button class="x" size="small">x</button>
       </div><br>
     </div>
     <form>

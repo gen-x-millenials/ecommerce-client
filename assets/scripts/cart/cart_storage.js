@@ -7,7 +7,6 @@ const arr = cartObj.items;
 const inCart = function (val) {
   if (this[1] === val.name) {
     val.quantity += parseInt(this[0]);
-    console.log("yes" + val.name + " " + val.quantity);
     inCartStatus = "yes";
   }
 };
@@ -26,9 +25,7 @@ const addItems = function () {
        cartItem.push(field.value);
      }
   arr.forEach(inCart,cartItem);
-  if (inCartStatus === "yes") {
-    console.log("yes");
-  } else {
+  if (inCartStatus !== "yes") {
     console.log("UGH");
     arr[arr.length] = {
           quantity: parseInt(cartItem[0]),
@@ -42,4 +39,5 @@ const addItems = function () {
 
 module.exports = {
   addItems,
+  cartObj,
 };
