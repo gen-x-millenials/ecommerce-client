@@ -29,7 +29,7 @@ let handler = StripeCheckout.configure({
   token: function(token) {
     let credentials = {
       stripeToken: token.id,
-      amount: currentOrder.order.total
+      amount: currentOrder.order.total * 100
     };
     api.addStripeCharge(credentials).then(ui.success).catch(ui.failure);
   }
@@ -61,7 +61,7 @@ const onCheckout = (event) => {
   handler.open({
     name: 'Gen X and the Millenials',
     description: 'purchase',
-    amount: currentOrder.order.total
+    amount: currentOrder.order.total * 100
   });
 };
 
