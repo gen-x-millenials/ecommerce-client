@@ -1,6 +1,10 @@
 'use strict';
 
-let cartObj = { items: []};
+let cartObj = {
+  items: [],
+  total: 0
+};
+
 let inCartStatus = "";
 const arr = cartObj.items;
 
@@ -9,6 +13,9 @@ const inCart = function (val) {
     val.quantity += parseInt(this[0]);
     inCartStatus = "yes";
   }
+};
+const calculateTotal = function (val) {
+  this.push(val.price * val.quantity);
 };
 
 const populateCart = function (data) {
@@ -19,6 +26,7 @@ const populateCart = function (data) {
 const addItems = function () {
   let cartItem = [];
   inCartStatus = "";
+  let itemTotal = [];
   let form = document.getElementById("form");
   for (let i = 1; i < 5; i++) {
        let field = form[i];
@@ -29,10 +37,13 @@ const addItems = function () {
     arr[arr.length] = {
           quantity: parseInt(cartItem[0]),
           name: cartItem[1],
-          price: parseFloat(cartItem[2]),
+          price: parseInt(cartItem[2]),
           id: cartItem[3]
     };
   }
+  arr.forEach(calculateTotal,itemTotal);
+  cartObj.total = itemTotal.reduce((pv, cv) => pv+cv, 0);
+  console.log(cartObj.total);
   return populateCart(cartObj);
 };
 
