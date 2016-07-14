@@ -3,11 +3,11 @@
 //const getFormFields = require('../../../lib/get-form-fields');
 const productApi = require('./product-api.js');
 const productUi = require('./product-ui.js');
+const cartStorage = require('../cart/cart_storage.js');
 //const app = require('../app.js');
 
 const onShowProduct = function (event) {
   event.preventDefault();
-  console.log("hi");
   $('.show-item').html("");
   let id = $(this).children().attr('id');
   productApi.showProduct(id)
@@ -18,8 +18,11 @@ const onGetProducts = function () {
   console.log("this is the document ready function");
   productApi.indexProducts()
   .done(productUi.getProductsSuccess);
+};
 
-
+const onAddToCart = function (event) {
+  event.preventDefault();
+  cartStorage.addItems();
 };
 
 //this method is a little odd: because ID's aren't the index values {ugh}
@@ -31,8 +34,7 @@ const onGetProducts = function () {
 
 
 const addProductHandlers = () => {
-  // $('.img').on('click', onShowProduct);
-//  $('.add-to-cart').on('click', onAddToCart);
+  $('.add-to-cart').on('click', onAddToCart);
   $(document).ready(onGetProducts);
   $(document).on('click','.img', onShowProduct);
 };
