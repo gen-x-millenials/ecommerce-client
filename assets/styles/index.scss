@@ -12,3 +12,25 @@ body{
   // border: 1px solid black;
   padding-top: 20px;
 }
+
+
+////////////////////////////////////
+
+table {
+  width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 3px;
+    text-align: left;
+}
+
+th {
+    height: 10px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2}

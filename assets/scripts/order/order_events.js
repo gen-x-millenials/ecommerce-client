@@ -24,13 +24,33 @@ const onBrowse = function(event) {
   $('#products').show();
 };
 
+const onGetOrderHistory = (event) => {
+  event.preventDefault();
+  console.log("this is get order history");
+  api.getOrderHistory()
+  .done(ui.getOrderSuccess)
+  // .fail(ui.failure);
+};
+
+const onDeleteOrder = (event)=> {
+  event.preventDefault();
+  let orderIDtoDelete = $(event.target).data("order-id");
+  console.log(orderIDtoDelete);
+  api.deleteOrder(orderIDtoDelete)
+  .done(ui.successDeleteOrder)
+  .fail(ui.failure);
+};
+
 const addHandlers = () => {
   $('#cart-button').on('click', onCart);
   $('#check-out-button').on('click', onCheckout);
   $('#logo').on('click', onBrowse);
-
+  $('#get-orders').on('submit', onGetOrderHistory);
   $('#checkout-page').hide();
+  $(document).on('click','.deleteButtons', onDeleteOrder);
 };
+
+
 
 module.exports = {
   addHandlers,
