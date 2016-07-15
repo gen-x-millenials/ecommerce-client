@@ -59,7 +59,7 @@ const onCheckout = (event) => {
     closed: function() {
       // console.log('done!!');
       // console.log(app.order);
-      api.changePaidStatus().then(ui.changePaidStatusSuccess).catch(ui.failure);
+      api.changePaidStatus().then(ui.changePaidStatusSuccess).then(cart.cartReset).catch(ui.failure);
     },
     amount: currentOrder.order.total * 100
   });

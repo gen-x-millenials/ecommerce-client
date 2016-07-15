@@ -58,6 +58,7 @@ const addItems = function () {
 
 const cartReset = () => {
   Object.assign(cartObj, cartObjDefault);
+  console.log(cartObj);
 };
 
 module.exports = {
