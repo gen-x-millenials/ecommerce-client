@@ -10,6 +10,7 @@ const showSuccess = function (data) {
 const getProductsSuccess = function (products) {
   // console.log(products);
   // console.log("this is the get products success function");
+  $('#products').html('');
   let displayAllProducts = require ('../templates/display-all-products.handlebars');
   $('#products').prepend(displayAllProducts(products));
 };

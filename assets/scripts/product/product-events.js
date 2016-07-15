@@ -36,6 +36,46 @@ const onAddToCart = function (event) {
   }
 };
 
+const onWine = function(event) {
+  event.preventDefault();
+  $('#wine-button').css('border','2px solid white');
+  $('#beer-button').css('border','none');
+  $('#cider-button').css('border','none');
+  $('#all-button').css('border','none');
+  productApi.getWine()
+  .done(productUi.getProductsSuccess);
+};
+
+const onBeer = function(event) {
+  event.preventDefault();
+  $('#wine-button').css('border','none');
+  $('#beer-button').css('border','2px solid white');
+  $('#cider-button').css('border','none');
+  $('#all-button').css('border','none');
+  productApi.getBeer()
+  .done(productUi.getProductsSuccess);
+};
+
+const onCider = function(event) {
+  event.preventDefault();
+  $('#wine-button').css('border','none');
+  $('#beer-button').css('border','none');
+  $('#cider-button').css('border','2px solid white');
+  $('#all-button').css('border','none');
+  productApi.getCider()
+  .done(productUi.getProductsSuccess);
+};
+
+const onAll = function(event) {
+  event.preventDefault();
+  $('#wine-button').css('border','none');
+  $('#beer-button').css('border','none');
+  $('#cider-button').css('border','none');
+  $('#all-button').css('border','2px solid white');
+  productApi.indexProducts()
+  .done(productUi.getProductsSuccess);
+};
+
 //this method is a little odd: because ID's aren't the index values {ugh}
 //I am basically saying "GET all products, find the one at the index equal
 //to the ID of the product minus 1". So if you click the 1st image, you are
@@ -48,6 +88,11 @@ const addProductHandlers = () => {
   $('.add-to-cart').on('click', onAddToCart);
   $(document).ready(onGetProducts);
   $(document).on('click','.img', onShowProduct);
+
+  $('#wine-button').on('click', onWine);
+  $('#beer-button').on('click', onBeer);
+  $('#cider-button').on('click', onCider);
+  $('#all-button').on('click', onAll);
 };
 
 module.exports = {
