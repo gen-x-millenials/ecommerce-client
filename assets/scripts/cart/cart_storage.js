@@ -5,6 +5,11 @@ let cartObj = {
   total: 0
 };
 
+let cartObjDefault = {
+  items: [],
+  total: 0
+};
+
 let inCartStatus = "";
 const arr = cartObj.items;
 
@@ -51,8 +56,13 @@ const addItems = function () {
   return populateCart(cartObj);
 };
 
+const cartReset = () => {
+  Object.assign(cartObj, cartObjDefault);
+};
+
 module.exports = {
   addItems,
   cartObj,
   updateTotal,
+  cartReset,
 };
