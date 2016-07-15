@@ -18,16 +18,17 @@ $salmon: #FA8072;
   }
 }
 
-#admin-page {
-  border: 2px solid blue;
-}
 
 .admin-product {
-  border: 2px solid green;
+  // border: 2px solid green;
 }
 
 .hidded{
   display: none;
+}
+
+header {
+  color: $plain-white;
 }
 
 #admin-get-all, #admin-create-product {
@@ -35,6 +36,6 @@ $salmon: #FA8072;
   text-shadow: none !important;
   border:none !important;
   box-shadow:none !important;
-  background-color: $pale-purple;
+  background-color: $plain-black;
   color:$plain-white;
 }

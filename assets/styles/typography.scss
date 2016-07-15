@@ -4,20 +4,21 @@
   margin-right: auto;
 }
 
-.admin-product {
-  width: 24%;
-  display: inline-block;
-}
-
-.admin-product-image {
-  width: 20%;
+#admin-sign-out {
+  display: block;
 }
 
 #admin-get-all, #admin-create-product {
-  width: 45%;
+  width: 49%;
   height: 3em;
+  display: inline-block;
 }
 
+.jumbotron{
+  background-image: url('https://static.pexels.com/photos/7563/night-alcohol-bottles-drink-large.jpg');
+  background-size: cover;
+  margin-bottom: 0;
+}
 
 #welcome-page{
   background-image: url('https://static.pexels.com/photos/7563/night-alcohol-bottles-drink-large.jpg');
@@ -31,18 +32,26 @@
   }
   & h5 {
     position: relative;
-    top: 275px;
+    top: 250px;
   }
   & #enter-button {
     width: 10em;
     height: 3em;
     position: relative;
-    top: 300px;
+    top: 275px;
   }
   & #admin-enter {
-    position:relative;
-    top: 500px;
-    left: -10%;
+    position: relative;
+    top: 721px;
+    left: 37%;
+  }
+}
+
+.admin-product {
+  display: inline-block;
+  width: 25%;
+  & img {
+    width: 50%;
   }
 }
 
@@ -50,10 +59,40 @@
   z-index: 300000000;
 }
 
+#admin-product-modal{
+  & img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  & #admin-update-product  label {
+    display: block;
+    text-align: center;
+  }
+}
+
+#create-product {
+  & label {
+    display: block;
+    // position: relative;
+    // left: 50%;
+  }
+}
 
 #content{
   margin: 10px auto;
-  max-width: 70%;
+  max-width: 80%;
+}
+
+.single-product {
+  text-align: center;
+  & img {
+    width:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .col-md-4{

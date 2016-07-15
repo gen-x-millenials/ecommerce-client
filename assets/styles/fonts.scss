@@ -1,20 +1,46 @@
-$cursive: 'Galada', cursive;;
+$cursive: 'Lobster',cursive;
+$normal: 'Muli', sans-serif;
+
+body {
+  font-family: $normal;
+}
 
 #admin-get-all, #admin-create-product {
   font-size: 20px;
 }
 
+.jumbotron {
+  & h1 {
+    font-family: $cursive;
+    font-size: 72px;
+  }
+}
 
 #welcome-page{
   text-align: center;
   & h1 {
-    font-size: 100px;
+    font-size: 150px;
     font-family: $cursive;
   }
   & h5 {
     font-size: 28px;
+    font-family: $normal;
   }
   & #enter-button {
     font-size: 20px;
+    font-family: $normal;
   }
+}
+
+.admin-product {
+  text-align: center;
+  & img {
+    margin: 2em 0;
+
+  }
+}
+
+#create-product {
+  font-size: 18px;
+  margin-bottom: 1em;
 }

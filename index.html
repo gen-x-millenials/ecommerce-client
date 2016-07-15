@@ -9,65 +9,60 @@
 </head>
 
 <body class="container-fluid">
-  <div id='content' class="content">
-    <nav class="navbar navbar-inverse sign">
+
+
+<header>
+  <div class="jumbotron">
+    <h1>Brewtique</h1>
+    <h2>Why overthink when you can overdrink?</h2>
+  </div>
+
+  <nav class="navbar navbar-inverse sign">
       <ul class="nav navbar-nav">
         <li class="sign signout default-show" data-target="#log-in">
           <a id='login-button'>Log In</a>
         </li>
 
 
+        <li id='cart-button' class="cart" data-toggle="modal" data-target="#cart">
+          <a>Cart</a>
+        </li>
 
-  <li id='cart-button' class="cart" data-toggle="modal" data-target="#cart">
-    <a>Cart</a>
-  </li>
+        <li class="profile" style="display: none" data-toggle="modal" data-target="#profile">
+          <a>Profile</a>
+        </li>
+
+        <li id='wine-button' class="search">
+          <a>Wine</a>
+        </li>
+
+        <li id='beer-button' class="search">
+          <a>Beer</a>
+        </li>
+
+        <li id='cider-button' class="search">
+          <a>Cider</a>
+        </li>
+
+        <li id='all-button' class="search">
+          <a>All</a>
+        </li>
 
 
-  <li class="profile" style="display: none" data-toggle="modal" data-target="#profile">
-    <a>Profile</a>
-  </li>
-
-  </ul>
+      </ul>
   </nav>
 
 
 
-  <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <!-- <h4 class="modal-title" id="itemLabel">ITEM NAME</h4>-->
-        </div>
-        <div class="modal-body">
-          <div class="show-item">
-            <form id="item-add">
-              <fieldset>
-                <p>ITEMS</p>
+</header>
 
-                <!-- <input type="password" class="to-clear" name="credentials[password]" placeholder="Full Name"> -->
-              </fieldset>
-            </form>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-          <p style="display: none" class="item-added">Item added to cart!</p>
-          <p style="display: none" class="invalid">You must select a quantity greater than zero!</p>
-        </div>
-      </div>
+<div id='content' class="content">
+    <div id='products'>
     </div>
-  </div>
 
-  <div class="jumbotron">
-    <h1>Brewtique</h1>
-    <p>We sell booze (and a dog)</p>
-  </div>
-
-  <div id='products'>
-  </div>
-
-  <div id='checkout-page'>
-    <h1>THIS IS THE CHECKOUT PAGE</h1>
-  </div>
+    <div id='checkout-page'>
+      <h1>THIS IS THE CHECKOUT PAGE</h1>
+    </div>
 
   </div>
 
@@ -207,12 +202,35 @@
   </div>
 
 
+  <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="show-item">
+            <form id="item-add">
+              <fieldset>
+                <p>ITEMS</p>
+
+
+              </fieldset>
+            </form>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+          <p style="display: none" class="item-added">Item added to cart!</p>
+          <p style="display: none" class="invalid">You must select a quantity greater than zero!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- ADMIN AND WELCOME PAGE -->
 
   <div id='welcome-page'>
-    <h1>Brewtiq</h1>
+    <h1>Brewtique</h1>
     <h5>I certify that I am 21 years of age or older</h5>
     <button id='enter-button'>ENTER</button>
     <button id='admin-enter'>Admin</button>
@@ -225,8 +243,8 @@
 
 
 
-    <button id='admin-get-all'>Gimme all da Dranks</button>
-    <button id='admin-create-product'>Create New Drank</button>
+    <button id='admin-get-all'>All Products</button>
+    <button id='admin-create-product'>New Product</button>
 
     <div id='admin-display-all'>
     </div>
@@ -268,12 +286,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Update Product</h4>
+          <h4 class="modal-title">Admin</h4>
         </div>
         <div class="modal-body">
           <form id='admin-sign-in'>
             <fieldset>
-              <legend>Sign In!</legend>
+              <legend>Sign In</legend>
               <input id='sign-in-email' type='text' name='credentials[email]' placeholder='Username'>
               <input id='sign-in-pass' type='password' name='credentials[password]' placeholder='Password'>
               <input type='submit' value='Sign In'>

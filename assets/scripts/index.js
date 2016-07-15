@@ -24,6 +24,8 @@ $(() => {
   cartEvents.addCartHandlers();
   stripeEvents.addHandlers();
 
-  $('head').append("<link href='<link href='https://fonts.googleapis.com/css?family=Galada' rel='stylesheet' type='text/css'>");
+  $('head').append("<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>");
+  $('head').append("<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>");
+
   adminEvents.addHandlers();
 });
