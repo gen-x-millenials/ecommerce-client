@@ -16,7 +16,31 @@ const showProduct = function (id) {
   });
 };
 
+const getWine = function() {
+  return $.ajax({
+    url: app.host + '/wine',
+    method: 'GET',
+  });
+};
+
+const getBeer = function() {
+  return $.ajax({
+    url: app.host + '/beer',
+    method: 'GET',
+  });
+};
+
+const getCider = function() {
+  return $.ajax({
+    url: app.host + '/cider',
+    method: 'GET',
+  });
+};
+
 module.exports = {
   indexProducts,
   showProduct,
+  getWine,
+  getBeer,
+  getCider,
 };
