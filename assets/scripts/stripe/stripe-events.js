@@ -19,7 +19,7 @@ let currentOrder = {
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_GkNup9bDIq38PpNXXeHBDjsL',
-  image: 'http://www.rantlifestyle.com/wp-content/uploads/2014/08/017.jpg',
+  image: 'https://shireen-wdi-bucket.s3.amazonaws.com/2016-07-15/0b06f60ba5ae450967b7cae7ed67390b.png',
   locale: 'auto',
   closed: function() {
     // console.log('done!!');
@@ -35,16 +35,16 @@ let handler = StripeCheckout.configure({
   }
 });
 
-const onSaveOrder = (event) => {
-  event.preventDefault();
-  if (!app.user || currentOrder.order.total === 0) {
-    return;
-  }
-  let data = currentOrder;
-  api.createOrder(data)
-    .then(ui.createOrderSuccess)
-    .catch(ui.failure);
-};
+// const onSaveOrder = (event) => {
+//   event.preventDefault();
+//   if (!app.user || currentOrder.order.total === 0) {
+//     return;
+//   }
+//   let data = currentOrder;
+//   api.createOrder(data)
+//     .then(ui.createOrderSuccess)
+//     .catch(ui.failure);
+// };
 
 const onCheckout = (event) => {
   event.preventDefault();
@@ -66,7 +66,7 @@ const onCheckout = (event) => {
 };
 
 const addHandlers = () => {
-  $('#save-order-button').on('click', onSaveOrder);
+  // $('#save-order-button').on('click', onSaveOrder);
   $('#checkout-button').on('click', onCheckout);
   $(window).on('popstate', function() {
     handler.close();
