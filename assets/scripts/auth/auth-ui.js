@@ -40,6 +40,7 @@ const signOutSuccess = () => {
   // console.log('Signed out');
   //$('.add-to-cart').hide();
   $('#content').hide();
+  $('header').hide();
   $('#welcome-page').show();
   $('#sign-in-modal').modal('hide');
   $('.profile').hide();

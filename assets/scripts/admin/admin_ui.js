@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
+const adminApi = require('./admin_api');
 
 const success = (data) => {
   if (data) {
@@ -14,6 +15,14 @@ const failure = (error) => {
   console.error(error);
 };
 
+const reload = function(){
+  $('#create-product').hide();
+  $('#admin-display-all').show();
+  adminApi.getAllProducts()
+  .done(getAllProductsSuccess)
+  .fail(failure);
+};
+
 const signInSuccess = (data) => {
   app.admin = data.admin;
   console.log(app.admin);
@@ -24,18 +33,22 @@ const signInSuccess = (data) => {
   $('#admin-page').show();
 };
 
-const signUpSuccess = function(data){
-  console.log(data);
-  console.log('sign up success');
+const signInFail = (error) => {
+  console.error(error);
+  $('#admin-signIn-modal').modal('hide');
 };
+
 
 const signOutSuccess = () => {
   console.log('User signed out successfully');
   app.user = null;
+  $('#admin-page').hide();
+  $('#welcome-page').show();
 };
 
 const createProductSuccess = (data) => {
   console.log(data);
+  reload();
 };
 
 const productDetails = function(event){
@@ -74,27 +87,29 @@ const getAllProductsSuccess = function(data){
 
     $("#admin_product"+data.products[i]._id).on('click', productDetails);
 
-    console.log($("#"+data.products[i]._id));
 
   }
 };
 
 const updateProductSuccess = function(data) {
   console.log(data);
+  $('#admin-product-modal').modal('hide');
+  reload();
 };
 
 const deleteProductSuccess = function(data) {
-  console.log(data);
+  $('#admin-product-modal').modal('hide');
+  reload();
 };
 
 module.exports = {
   success,
   failure,
-  signUpSuccess,
   signInSuccess,
   signOutSuccess,
   createProductSuccess,
   getAllProductsSuccess,
   updateProductSuccess,
   deleteProductSuccess,
+  signInFail,
 };
