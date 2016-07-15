@@ -26,7 +26,7 @@ const onSignIn = (event) => {
 
 const onSignOut = (event) => {
   event.preventDefault();
-  console.log(app.user);
+  // console.log(app.user);
   api.signOut()
     .done(ui.signOutSuccess)
     .fail(ui.failure);

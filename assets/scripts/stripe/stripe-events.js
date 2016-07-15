@@ -22,14 +22,14 @@ let handler = StripeCheckout.configure({
   image: '/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   closed: function() {
-    console.log('done!!');
-    console.log(app.order);
+    // console.log('done!!');
+    // console.log(app.order);
     api.changePaidStatus().then(ui.changePaidStatusSuccess).catch(ui.failure);
   },
   token: function(token) {
     let credentials = {
       stripeToken: token.id,
-      amount: currentOrder.order.total
+      amount: currentOrder.order.total * 100
     };
     api.addStripeCharge(credentials).then(ui.success).catch(ui.failure);
   }
@@ -56,12 +56,12 @@ const onCheckout = (event) => {
     .then(ui.createOrderSuccess)
     .catch(ui.failure);
 
-  console.log(app.order);
+  // console.log(app.order);
   // opens stripe checkout
   handler.open({
     name: 'Gen X and the Millenials',
     description: 'purchase',
-    amount: currentOrder.order.total
+    amount: currentOrder.order.total * 100
   });
 };
 

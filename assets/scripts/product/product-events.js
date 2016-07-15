@@ -15,14 +15,25 @@ const onShowProduct = function (event) {
 };
 
 const onGetProducts = function () {
-  console.log("this is the document ready function");
+  // console.log("this is the document ready function");
   productApi.indexProducts()
   .done(productUi.getProductsSuccess);
 };
 
 const onAddToCart = function (event) {
   event.preventDefault();
-  cartStorage.addItems();
+  let form = document.getElementById("form");
+  let targ = form[1];
+  let val = targ.value;
+  if (val > 0) {
+    cartStorage.addItems();
+    $('.item-added').fadeIn(500).fadeOut(1000);
+    if (cartStorage.cartObj.items.length > 0) {
+      $('.no-items').hide();
+    }
+  } else {
+    $('.invalid').fadeIn(500).fadeOut(1500);
+  }
 };
 
 //this method is a little odd: because ID's aren't the index values {ugh}

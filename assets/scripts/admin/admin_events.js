@@ -22,7 +22,7 @@ const onAdminSignIn = function(event) {
   console.log(data);
   adminApi.adminSignIn(data)
   .done(adminUi.signInSuccess)
-  .fail(adminUi.failure);
+  .fail(adminUi.signInFail);
 };
 
 const onAdminSignOut = (event) => {
@@ -117,6 +117,7 @@ const onEnter = function(event) {
   event.preventDefault();
   $('#welcome-page').hide();
   $('#content').show();
+  $('header').show();
 };
 
 const onAdminModal = function(event){
@@ -142,6 +143,7 @@ const addHandlers = () => {
   $('#admin-create-product').on('click', onCreateProductButton);
 
   $('#content').hide();
+  $('header').hide();
   $('#enter-button').on('click', onEnter);
   $('#admin-enter').on('click', onAdminModal);
 };

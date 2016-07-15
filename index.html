@@ -9,70 +9,50 @@
 </head>
 
 <body class="container-fluid">
-  <div id='content' class="content">
-    <nav class="navbar navbar-inverse sign">
+
+
+<header>
+  <div class="jumbotron">
+    <h1>Brewtique</h1>
+    <p>We sell booze (and a dog)</p>
+  </div>
+
+  <nav class="navbar navbar-inverse sign">
       <ul class="nav navbar-nav">
         <li class="sign signout default-show" data-target="#log-in">
           <a id='login-button'>Log In</a>
         </li>
 
 
+        <li id='cart-button' class="cart" data-toggle="modal" data-target="#cart">
+          <a>Cart</a>
+        </li>
 
-  <li id='cart-button' class="cart" data-toggle="modal" data-target="#cart">
-    <a>Cart</a>
-  </li>
+        <li class="profile" style="display: none" data-toggle="modal" data-target="#profile">
+          <a>Profile</a>
+        </li>
 
-
-  <li class="profile" data-toggle="modal" data-target="#profile">
-    <a>Profile</a>
-  </li>
-
-  </ul>
+      </ul>
   </nav>
 
 
 
-  <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <!-- <h4 class="modal-title" id="itemLabel">ITEM NAME</h4>-->
-        </div>
-        <div class="modal-body">
-          <div class="show-item">
-            <form id="item-add">
-              <fieldset>
-                <p>ITEMS</p>
+</header>
 
-                <!-- <input type="password" class="to-clear" name="credentials[password]" placeholder="Full Name"> -->
-              </fieldset>
-            </form>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
+<div id='content' class="content">
+    <div id='products'>
     </div>
-  </div>
 
-  <div class="jumbotron">
-    <h1>Brewtique</h1>
-    <p>We sell booze (and a dog)</p>
-  </div>
-
-  <div id='products'>
-  </div>
-
-  <div id='checkout-page'>
-    <h1>THIS IS THE CHECKOUT PAGE</h1>
-  </div>
+    <div id='checkout-page'>
+      <h1>THIS IS THE CHECKOUT PAGE</h1>
+    </div>
 
   </div>
 
 
 
 
-  <div id='sign-in-modal' class="modal fade" id="log-in" tabindex="-1" role="dialog" aria-labelledby="logInLabel">
+  <div id='sign-in-modal' class="modal fade" tabindex="-1" role="dialog" aria-labelledby="logInLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -81,7 +61,7 @@
         </div>
         <div class="modal-body">
 
-          <form class="to-hide sign-up">
+          <form class="after-out sign-up">
             <fieldset>
               <legend>Sign up!</legend>
               <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
@@ -91,7 +71,7 @@
             </fieldset>
           </form>
 
-          <form class="to-hide sign-in">
+          <form class="sign-in after-out">
             <fieldset>
               <legend>Sign In!</legend>
               <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
@@ -100,14 +80,14 @@
             </fieldset>
           </form>
 
-          <form class="sign-out">
+          <form class="sign-out after-in" style="display: none">
             <fieldset>
               <legend>Sign Out!</legend>
               <input class="sign-out" type="submit" value="Sign Out">
             </fieldset>
           </form>
 
-          <form class="default-show change-password">
+          <form class="change-password after-in" style="display: none">
             <fieldset>
               <legend>Change Password!</legend>
               <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
@@ -192,11 +172,12 @@
             <div class="cart-items">
             </div>
 
-            <h3>Your Cart is Empty!</h3>
+            <h3 class="no-items">Your Cart is Empty!</h3>
             <h5>Total: </h5>
             <script src="https://checkout.stripe.com/checkout.js"></script>
-            <button type="button" class="btn btn-default create-order" id="save-order-button">Save for later</button>
-            <button type="button" class="btn btn-default checkout" id="checkout-button">Checkout</button>
+            <button style="display: none" type="button" class="btn btn-default create-order" id="save-order-button">Save for later</button>
+            <button style="display: none" type="button" class="btn btn-default checkout" id="checkout-button">Checkout</button>
+            <h3 class="sign-in-warn">You must be signed in to complete this order</h3>
           </div>
         </div>
       </div>
@@ -204,12 +185,35 @@
   </div>
 
 
+  <div class="modal fade" id="item" tabindex="-1" role="dialog" aria-labelledby="itemLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="show-item">
+            <form id="item-add">
+              <fieldset>
+                <p>ITEMS</p>
+
+
+              </fieldset>
+            </form>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+          <p style="display: none" class="item-added">Item added to cart!</p>
+          <p style="display: none" class="invalid">You must select a quantity greater than zero!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- ADMIN AND WELCOME PAGE -->
 
   <div id='welcome-page'>
-    <h1>Brewtiq</h1>
+    <h1>Brewtique</h1>
     <h5>I certify that I am 21 years of age or older</h5>
     <button id='enter-button'>ENTER</button>
     <button id='admin-enter'>Admin</button>
@@ -265,12 +269,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Update Product</h4>
+          <h4 class="modal-title">Admin</h4>
         </div>
         <div class="modal-body">
           <form id='admin-sign-in'>
             <fieldset>
-              <legend>Sign In!</legend>
+              <legend>Sign In</legend>
               <input id='sign-in-email' type='text' name='credentials[email]' placeholder='Username'>
               <input id='sign-in-pass' type='password' name='credentials[password]' placeholder='Password'>
               <input type='submit' value='Sign In'>

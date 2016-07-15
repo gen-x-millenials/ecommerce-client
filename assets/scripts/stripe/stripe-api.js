@@ -3,7 +3,7 @@
 const app = require('../app.js');
 
 const createOrder = (data) => {
-  console.log(data);
+  // console.log(data);
   return new Promise((resolve, reject) => {
     return $.ajax({
       url: app.host + '/orders',
@@ -23,7 +23,7 @@ const createOrder = (data) => {
 };
 
 const addStripeCharge = (data) => {
-  console.log(data);
+  // console.log(data);
   return new Promise((resolve, reject) => {
     return $.ajax({
       url: app.host + '/charge',
