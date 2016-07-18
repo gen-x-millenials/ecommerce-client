@@ -2126,13 +2126,8 @@ webpackJsonp([0],[
 
 	var handler = StripeCheckout.configure({
 	  key: 'pk_test_GkNup9bDIq38PpNXXeHBDjsL',
-	  image: '/img/documentation/checkout/marketplace.png',
+	  image: 'https://shireen-wdi-bucket.s3.amazonaws.com/2016-07-15/0b06f60ba5ae450967b7cae7ed67390b.png',
 	  locale: 'auto',
-	  closed: function closed() {
-	    // console.log('done!!');
-	    // console.log(app.order);
-	    api.changePaidStatus().then(ui.changePaidStatusSuccess).catch(ui.failure);
-	  },
 	  token: function token(_token) {
 	    var credentials = {
 	      stripeToken: _token.id,
@@ -2142,18 +2137,20 @@ webpackJsonp([0],[
 	  }
 	});
 
-	var onSaveOrder = function onSaveOrder(event) {
-	  event.preventDefault();
-	  if (!app.user) {
-	    return;
-	  }
-	  var data = currentOrder;
-	  api.createOrder(data).then(ui.createOrderSuccess).catch(ui.failure);
-	};
+	// const onSaveOrder = (event) => {
+	//   event.preventDefault();
+	//   if (!app.user || currentOrder.order.total === 0) {
+	//     return;
+	//   }
+	//   let data = currentOrder;
+	//   api.createOrder(data)
+	//     .then(ui.createOrderSuccess)
+	//     .catch(ui.failure);
+	// };
 
 	var onCheckout = function onCheckout(event) {
 	  event.preventDefault();
-	  if (!app.user) {
+	  if (!app.user || currentOrder.order.total === 0) {
 	    return;
 	  }
 	  var data = currentOrder;
@@ -2164,12 +2161,17 @@ webpackJsonp([0],[
 	  handler.open({
 	    name: 'Gen X and the Millenials',
 	    description: 'purchase',
+	    closed: function closed() {
+	      // console.log('done!!');
+	      // console.log(app.order);
+	      api.changePaidStatus().then(ui.changePaidStatusSuccess).catch(ui.failure);
+	    },
 	    amount: currentOrder.order.total * 100
 	  });
 	};
 
 	var addHandlers = function addHandlers() {
-	  $('#save-order-button').on('click', onSaveOrder);
+	  // $('#save-order-button').on('click', onSaveOrder);
 	  $('#checkout-button').on('click', onCheckout);
 	  $(window).on('popstate', function () {
 	    handler.close();
