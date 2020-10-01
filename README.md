@@ -7,7 +7,7 @@ store an address and credit card, can view a product's description and price, ca
 
 We built this front end very methodically by focusing around our major CRUD actions and building each one of the features out. Initially, we constructed an HTML skeleton to place buttons for our sign-up, sign-in, sign-out and change password forms.  From there, we built ajax requests to fulfill the CRUD actions of these authorization requests.
 
-Then, we built a profiles modal which collected address and credit card information from a user to fulfill his/her profile needs.  In order to complete an order, a user must provide a payment method (credit card info) and an address to ship their order to.
+Then, we built a profiles modal which seekeed address with credit card information from the user to fulfill his/her profile needs.  In order to complete an order, a user must select a payment method (credit card info) and an address to ship their order to.
 
 Next, we built an HTML skeleton of placing dummy products on our SPA for sale.  Then we used a GET Ajax request along with handlebars and CSS in order to display all the products on the page. Then we built another ajax, so that upon clicking on an individual product on a page, we would GET that particular product's more in depth information and display it in a product information modal.
 
@@ -21,7 +21,7 @@ User Stories :
  - as a user, I want to be able to retrieve my order history.
  - as a user, I want to be able to make SECURE purchases through a trusted credit card payment processing third party
  - as a user, I want simplicity in design so that I can quickly and easily make purchases on this site and get onto to drinking my alcohol.
- - as a user, I want password security to log into my site so that I can securely store my credit card in my profile for purchases.
+ - as a user, I want password security to log into my site so that I can securely store my credit card info in my profile for further purchases.
 
 Link to our ERD:
 
